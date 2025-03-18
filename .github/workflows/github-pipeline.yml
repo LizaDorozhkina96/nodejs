@@ -38,8 +38,8 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/cat-tournament:latest .
-          docker push ${{ secrets.DOCKER_USERNAME }}/cat-tournament:latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/nodejs:latest .
+          docker push ${{ secrets.DOCKER_USERNAME }}/nodejs:latest
 
   deploy:
     if: github.ref == 'refs/heads/main'
@@ -48,5 +48,5 @@ jobs:
     steps:
       - name: Pull and run Docker container
         run: |
-          docker pull ${{ secrets.DOCKER_USERNAME }}/cat-tournament
-          docker run -d -p 80:80 ${{ secrets.DOCKER_USERNAME }}/cat-tournament
+          docker pull ${{ secrets.DOCKER_USERNAME }}/nodejs
+          docker run -d -p 80:80 ${{ secrets.DOCKER_USERNAME }}/nodejs
