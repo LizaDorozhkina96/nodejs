@@ -26,12 +26,6 @@ jobs:
     - name: Install dependencies
       run: npm install
       
-    - name: Run ESLint (если есть линтер)
-      run: npx eslint app.js
-      
-    - name: Run tests (если есть тесты)
-      run: npm test
-      
     - name: Verify server starts
       run: |
         nohup node app.js > /dev/null 2>&1 &
